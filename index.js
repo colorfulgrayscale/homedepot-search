@@ -21,12 +21,12 @@ const search = (sku, zip) => {
     const parseResponse = (error, response, body) => {
         if (!error && response.statusCode == 200) {
             // remove jsonp formatting
-            cleaned = body.substring(body.indexOf("({") + 1).replace(");", "");
+            var cleaned = body.substring(body.indexOf("({") + 1).replace(");", "");
             var results = JSON.parse(cleaned);
             // console.warn(JSON.stringify(results, null, 4));
             const primaryStore = _.get(results, 'storeFulfillment.storeFulfillmentDetails.primaryStore', {});
             const alternateStores = _.get(results, 'storeFulfillment.storeFulfillmentDetails.alternateStores.store', []);
-            for (store of alternateStores) {
+            for (var store of alternateStores) {
                 checkAvailability(store);
             }
         } else {
