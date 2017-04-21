@@ -66,6 +66,11 @@ const capitals = [
     },
     {
         "abbreviation": "AR",
+        "capital": "Fayetteville",
+        "zip": '72701'
+    },
+    {
+        "abbreviation": "AR",
         "capital": "Little Rock",
         "zip": '72201'
     },
@@ -118,6 +123,11 @@ const capitals = [
         "abbreviation": "IL",
         "capital": "Springfield",
         "zip": '62701'
+    },
+    {
+        "abbreviation": "IL",
+        "capital": "Chicago",
+        "zip": '60714'
     },
     {
         "abbreviation": "IN",
@@ -311,7 +321,7 @@ const main = () => {
         input: process.stdin,
         output: process.stdout
     });
-    rl.question('What is the ID of the product? ', sku => {
+    rl.question('What is the Internet ID of the product? ', sku => {
         rl.close();
         if (sku.match(/^\d+$/)) {
             console.log(colors.yellow(`Searching for sku ${sku}`));
